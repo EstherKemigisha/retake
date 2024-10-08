@@ -1,0 +1,87 @@
+<!-- bookings/templates/bookings/booking_form.html -->
+{% load static %}
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Flight Booking Form</title>
+    <link rel="stylesheet" href="{% static '/bookings/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Online Flight Booking Form</h1>
+            <div class="logo">Rim Aviation Group</div>
+        </header>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-section">
+                <h2>Passenger Information</h2>
+                <div class="form-group">
+                    <label for="{{ form.full_name.id_for_label }}">* {{ form.full_name.label }}</label><br>
+                    {{ form.full_name }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.gender.id_for_label }}">* {{ form.gender.label }}</label><br>
+                    {{ form.gender }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.date_of_birth.id_for_label }}">* {{ form.date_of_birth.label }}</label><br>
+                    {{ form.date_of_birth }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.nationality.id_for_label }}">* {{ form.nationality.label }}</label><br>
+                    {{ form.nationality }}<br>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Contact Information</h2>
+                <div class="form-group">
+                    <label for="{{ form.phone_number.id_for_label }}">* {{ form.phone_number.label }}</label><br>
+                    {{ form.phone_number }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.email.id_for_label }}">* {{ form.email.label }}</label><br>
+                    {{ form.email }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.po_box.id_for_label }}">{{ form.po_box.label }}</label><br>
+                    {{ form.po_box }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.emergency_phone.id_for_label }}">* {{ form.emergency_phone.label }}</label><br>
+                    {{ form.emergency_phone }}<br>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Flight Information</h2>
+                <div class="form-group">
+                    <label for="{{ form.passport_number.id_for_label }}">* {{ form.passport_number.label }}</label><br>
+                    {{ form.passport_number }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.visa_document.id_for_label }}">* {{ form.visa_document.label }}</label><br>
+                    {{ form.visa_document }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.departure_city.id_for_label }}">* {{ form.departure_city.label }}</label><br>
+                    {{ form.departure_city }}<br>
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.destination_city.id_for_label }}">* {{ form.destination_city.label }}</label><br>
+                    {{ form.destination_city }}<br>
+                </div>
+            </div>
+
+            <div class="submit-button">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
